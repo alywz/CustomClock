@@ -8,4 +8,31 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <declare-styleable name="CustomClockView">
+        <!--时针的颜色-->
+        <attr name="mHcolor" format="color"></attr>
+        <!--分针的颜色-->
+        <attr name="mMcolor" format="color"></attr>
+        <!--秒针的颜色-->
+        <attr name="mScolor" format="color"></attr>
+        <!--外圆的颜色-->
+        <attr name="cicleColor" format="color"></attr>
+        <!--圆心的颜色-->
+        <attr name="pointColor" format="color"></attr>
+        <!--钟表外圆的线条宽度-->
+        <attr name="mCircleWidth" format="dimension"></attr>
+        <!--时针圆盘刻度的宽度-->
+        <attr name="mCircleHWidth" format="dimension"></attr>
+        <!--分针圆盘刻度的宽度-->
+        <attr name="mCircleMWidth" format="dimension"></attr>
+        <!--时针线条宽度-->
+        <attr name="mHwidth" format="dimension"></attr>
+        <!--分针线条宽度-->
+        <attr name="mMwidth" format="dimension"></attr>
+        <!--秒针线条宽度-->
+        <attr name="mSwidth" format="dimension"></attr>
+        <!--时钟的半径-->
+        <attr name="circleRadius" format="dimension"></attr>
+
+    </declare-styleable>
 </resources>

@@ -1,6 +1,7 @@
 package com.demo.alyclock.components;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
@@ -11,6 +12,8 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import com.demo.alyclock.R;
 
 import java.util.Calendar;
 import java.util.Timer;
@@ -26,22 +29,22 @@ import java.util.TimerTask;
 public class CustomClockView extends View {
     Paint paint;
     PathEffect pathEffect;
-    private int mHcolor = 0xFF000000;//时针的颜色
-    private int mMcolor = 0xFFFF0000;//分针的颜色
-    private int mScolor = 0xFFFF0000;//秒针的颜色
-    private int cicleColor = 0xFFFF0000;//外圆的颜色
-    private int pointColor = 0xFFFF0000;//圆心的颜色
-    private int centerX, centerY;
-    private int mCircleWidth = 10;//钟表圆的宽度
-    private int mCircleHWidth = 40;//时针圆的宽度
-    private int mCircleMWidth = 20;//分针圆的宽度
-    private int mHwidth = 16;//时针宽度
-    private int mMwidth = 10;//分针宽度
-    private int mSwidth = 5;//秒针宽度
+    private int mHcolor;//时针的颜色
+    private int mMcolor;//分针的颜色
+    private int mScolor;//秒针的颜色
+    private int cicleColor;//外圆的颜色
+    private int pointColor;//圆心的颜色
+    private float mCircleWidth;//钟表圆的宽度
+    private float mCircleHWidth;//时针圆的宽度
+    private float mCircleMWidth;//分针圆的宽度
+    private float mHwidth;//时针宽度
+    private float mMwidth;//分针宽度
+    private float mSwidth;//秒针宽度
 
-    private int circleRadius = 300;//圆的半径
-    private int circleHRadius;//时针的半径
-    private int circleMRadius;//分针的半径
+    private int centerX, centerY;//圆心
+    private float circleRadius;//圆的半径
+    private float circleHRadius;//时针的半径
+    private float circleMRadius;//分针的半径
 
     private int Hour;
     private int Minute;
@@ -50,18 +53,33 @@ public class CustomClockView extends View {
     private float pi = (float) Math.PI;//圆周率
 
     public CustomClockView(Context context) {
-        super(context);
+        this(context, null);
+
     }
 
     public CustomClockView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CustomClockView);
+        cicleColor = array.getColor(R.styleable.CustomClockView_cicleColor, 0xFFFF0000);
+        pointColor = array.getColor(R.styleable.CustomClockView_pointColor, 0xFFFF0000);
+        mHcolor = array.getColor(R.styleable.CustomClockView_mHcolor, 0xFFFF0000);
+        mMcolor = array.getColor(R.styleable.CustomClockView_mMcolor, 0xFFFF0000);
+        mScolor = array.getColor(R.styleable.CustomClockView_mScolor, 0xFFFF0000);
+        mCircleWidth = array.getDimension(R.styleable.CustomClockView_mCircleWidth, 10);
+        mCircleHWidth = array.getDimension(R.styleable.CustomClockView_mCircleHWidth, 40);
+        mCircleHWidth = array.getDimension(R.styleable.CustomClockView_mCircleHWidth, 40);
+        mCircleMWidth = array.getDimension(R.styleable.CustomClockView_mCircleMWidth, 20);
+        mHwidth = array.getDimension(R.styleable.CustomClockView_mHwidth, 20);
+        mMwidth = array.getDimension(R.styleable.CustomClockView_mMwidth, 15);
+        mSwidth = array.getDimension(R.styleable.CustomClockView_mSwidth, 10);
+        circleRadius = array.getDimension(R.styleable.CustomClockView_circleRadius, 300);
+
         paint = new Paint();
         paint.setAntiAlias(true);
         circleHRadius = circleRadius - mCircleHWidth / 2 - mCircleWidth / 2;
         circleMRadius = circleRadius - mCircleMWidth / 2 - mCircleWidth / 2;
         //初始化当前时间
         initCalender();
-
         initTimer();
     }
 
@@ -175,7 +193,7 @@ public class CustomClockView extends View {
         paint.setStrokeWidth(mCircleMWidth);
         paint.setStrokeCap(Paint.Cap.BUTT);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(mHcolor);
+        paint.setColor(mScolor);
         canvas.drawCircle(0, 0, circleMRadius, paint);
         paint.setPathEffect(null);
 

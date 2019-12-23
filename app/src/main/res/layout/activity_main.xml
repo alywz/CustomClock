@@ -23,6 +23,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:cicleColor="#000000"
+        app:mCircleWidth="5dp"
+        app:mHwidth="7dp"
+        app:mMwidth="5dp"
+        app:mSwidth="2dp"
+        app:mScolor="#FF0000"
+        app:mMcolor="#000000"
+        app:mHcolor="#000000"
+        app:pointColor="#FF0000"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
