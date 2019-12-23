@@ -146,9 +146,8 @@ public class CustomClockView extends View {
         paint.setStrokeCap(Paint.Cap.ROUND);
         paint.setColor(mHcolor);
         paint.setStrokeWidth(mHwidth);
-        canvas.drawLine(-25, 0, 130, 0, paint);
+        canvas.drawLine(-circleHRadius/8, 0, circleHRadius-mCircleHWidth*4, 0, paint);
         canvas.restore();
-
 
         //画分针指针
         canvas.save();
@@ -156,7 +155,7 @@ public class CustomClockView extends View {
         paint.setStrokeCap(Paint.Cap.ROUND);
         paint.setColor(mMcolor);
         paint.setStrokeWidth(mMwidth);
-        canvas.drawLine(-30, 0, 170, 0, paint);
+        canvas.drawLine(-circleHRadius/8, 0,circleHRadius-mCircleHWidth*3 , 0, paint);
         canvas.restore();
 
         //画秒针指针
@@ -165,7 +164,7 @@ public class CustomClockView extends View {
         paint.setStrokeCap(Paint.Cap.ROUND);
         paint.setColor(mScolor);
         paint.setStrokeWidth(mSwidth);
-        canvas.drawLine(-50, 0, 200, 0, paint);
+        canvas.drawLine(-circleHRadius/6, 0, circleHRadius-mCircleHWidth, 0, paint);
         canvas.restore();
 
         //画时钟圆心

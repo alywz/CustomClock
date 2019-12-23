@@ -24,6 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:circleRadius="120dp"
         app:cicleColor="#000000"
         app:mCircleWidth="5dp"
         app:mHwidth="7dp"
