@@ -73,7 +73,7 @@ public class CustomClockView extends View {
         mMwidth = array.getDimension(R.styleable.CustomClockView_mMwidth, 15);
         mSwidth = array.getDimension(R.styleable.CustomClockView_mSwidth, 10);
         circleRadius = array.getDimension(R.styleable.CustomClockView_circleRadius, 300);
-
+        array.recycle(); 
         paint = new Paint();
         paint.setAntiAlias(true);
         circleHRadius = circleRadius - mCircleHWidth / 2 - mCircleWidth / 2;
